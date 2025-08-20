@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+img{
+    width: 200px;
+    border-radius: 100px;
+    margin-top: 15px; 
+    margin-left: 10px; 
+}
+body{
+    background: green;
+    font-family: "Montserrat", sans-serif;
+}
+header{
+    width: 100%;
+    height: 125px;
+    background: white;
+    border-radius: 100px;
+    box-shadow: 0px 4px 20px rgb(0, 0, 0, 0.3);
+}
+#image{
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+#headd{
+    margin-top: 30px;
+    height: 100%;
+    width: 75%;
+    float: right;
+    text-align: center;
+}
+.knopka{
+    float: left;
+    text-decoration: none;
+    margin: 10px;
+    margin-left: 70px;
+    box-shadow: 0px 4px 20px rgb(0, 0, 0, 0.3);
+    background: rgb(16, 168, 16);
+    border: 2px black solid;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    transition: 0.5s ease;
+}
+#tablediv{
+    max-width: 95%;
+    margin: 0 auto;         
+    padding-top: 12px;
+}
+#knopka1:hover{
+    padding: 8px;
+}
+#knopka2:hover{
+    padding: 8px;
+}
+#knopka3:hover{
+    padding: 8px;
+}
