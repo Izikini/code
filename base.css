@@ -6,26 +6,28 @@ img{
     margin-left: 10px; 
 }
 body{
+    box-sizing: border-box;
     background: green;
     font-family: "Montserrat", sans-serif;
 }
 header{
+    height: 20vh;
     width: 100%;
-    height: 125px;
     background: white;
-    border-radius: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     box-shadow: 0px 4px 20px rgb(0, 0, 0, 0.3);
 }
 #image{
     height: 100%;
-    width: 25%;
-    float: left;
+}
+ul{
+    list-style: none;
 }
 #headd{
-    margin-top: 30px;
-    height: 100%;
+    list-style: none;
     width: 75%;
-    float: right;
     text-align: center;
 }
 .knopka{
@@ -35,16 +37,44 @@ header{
     margin-left: 70px;
     box-shadow: 0px 4px 20px rgb(0, 0, 0, 0.3);
     background: rgb(16, 168, 16);
-    border: 2px black solid;
+    /* border: 2px black solid; */
     border-radius: 10px;
     color: black;
     padding: 10px;
     transition: 0.5s ease;
 }
-#tablediv{
-    max-width: 95%;
-    margin: 0 auto;         
+table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    height: 70%;
+    width: 95%;
+    overflow: auto;
     padding-top: 12px;
+    border: collapse;
+    text-align: center;
+}
+#tablediv thead {
+    width: 100%;
+}
+#tablediv th{
+    background: rgb(184, 218, 184);
+    position: sticky;
+    border: none;
+    top: 0;
+}
+#tablediv  tr td{
+    background: white;
+    border-bottom: 1px solid black;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80vh;
+    width: 100%;
+        padding-top: 20px;
 }
 #knopka1:hover{
     padding: 8px;
@@ -54,4 +84,8 @@ header{
 }
 #knopka3:hover{
     padding: 8px;
+}
+
+footer{
+    
 }

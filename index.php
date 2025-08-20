@@ -1,12 +1,10 @@
 <?php
-include("connect.php");
+include("connect.php"); // подключаем базу данных
 
-
-
-
+// Получаем текущее время
 $now = date('Y-m-d H:i:s');
 
-
+// Переносим завершённые бронирования в историю
 mysqli_query($conn, "
     INSERT INTO historia_pobytow (numer_pokoju, liczba_osob, gosc_imie_nazwisko, zrodlo_rezerwacji, uwagi, data_przyjazdu, data_wyjazdu, cena, platnosc)
     SELECT numer_pokoju, liczba_osob, gosc_imie_nazwisko, zrodlo_rezerwacji, uwagi, data_przyjazdu, data_wyjazdu, cena, platnosc
@@ -14,6 +12,8 @@ mysqli_query($conn, "
     WHERE CONCAT(data_wyjazdu, ' 11:00:00') < '$now' 
       AND gosc_imie_nazwisko IS NOT NULL
 ");
+
+// Очищаем данные о гостях, которые уже выехали
 mysqli_query($conn, "
     UPDATE pokoje
     SET liczba_osob = NULL, gosc_imie_nazwisko = NULL, zrodlo_rezerwacji = NULL, uwagi = NULL, data_przyjazdu = NULL, data_wyjazdu = NULL, cena = NULL, platnosc = NULL
@@ -27,7 +27,7 @@ mysqli_query($conn, "
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renusz</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем стили -->
     <link rel="shortcut icon" href="img/Fotoram.io.jpg" />
     <link rel="stylesheet" href="base.css">
 </head>
@@ -35,31 +35,38 @@ mysqli_query($conn, "
 <body>
     <header>
         <div id="image">
+            <!-- Логотип, переход на главную страницу -->
             <a href="index.php"><img src="img/Fotoram.io.jpg" alt="Logo"></a>
         </div>
-        <div id="headd">
-            <a href="meldunek.php" class="knopka" id="knopka1">Zamelduj Gościa</a>
-            <a href="wymeldowanie.php" class="knopka" id="knopka2">Wymelduj Goscia</a>
-            <a href="edit.php" class="knopka" id="knopka3">Edycja Gości</a>
-
-        </div>
+        <ul id="menu">
+            <!-- Кнопки навигации по сайту -->
+            <a href="meldunek.php" class="knopka" id="knopka1"><li>Zamelduj Gościa</li></a>
+            <a href="wymeldowanie.php" class="knopka" id="knopka2"><li>Wymelduj Goscia</li></a>
+            <a href="edit.php" class="knopka" id="knopka3"><li></li>Edycja Gości</li></a>
+        </ul>
     </header>
     <main>
         <div id="tablediv">
+            <!-- Таблица текущих гостей -->
             <table>
-                <tr>
-                    <th>Pobyt</th>
-                    <th>Pokój</th>
-                    <th>Imię i Nazwisko</th>
-                    <th>Cena</th>
-                    <th>Płatność</th>
-                    <th>Osoby</th>
-                    <th>Uwagi</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Pobyt</th>
+                        <th>Pokój</th>
+                        <th>Imię i Nazwisko</th>
+                        <th>Cena</th>
+                        <th>Płatność</th>
+                        <th>Osoby</th>
+                        <th>Uwagi</th>
+                    </tr>
+                </thead>
+                
                 <?php
+                // Получаем все записи из таблицы pokoje
                 $sql = "SELECT data_przyjazdu, data_wyjazdu, numer_pokoju, gosc_imie_nazwisko, cena, platnosc, liczba_osob, zrodlo_rezerwacji
-        FROM pokoje";
+                        FROM pokoje";
                 $result = $conn->query($sql);
+                // Выводим каждую запись в строку таблицы
                 while ($row = $result->fetch_array()) {
                     echo "<tr>
                     <td><b>$row[0] - $row[1]</b></td>
@@ -74,12 +81,13 @@ mysqli_query($conn, "
                 ?>
             </table>
         </div>
+        <!-- Форма для генерации PDF-отчёта по завтракам -->
         <form action="lista_sniadan.php" method="post">
-    <button type="submit">📄 Generuj listę śniadań</button>
-</form>
-
+            <button type="submit">📄 Generuj listę śniadań</button>
+        </form>
     </main>
     <footer>
+        <!-- Информация о разработчике -->
         <p>Developed by Artem Sorokin
             <br>
             Telegram: @luciferio666
