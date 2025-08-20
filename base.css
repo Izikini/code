@@ -30,8 +30,7 @@ ul{
     width: 75%;
     text-align: center;
 }
-.knopka{
-    float: left;
+header button{
     text-decoration: none;
     margin: 10px;
     margin-left: 70px;
@@ -43,30 +42,7 @@ ul{
     padding: 10px;
     transition: 0.5s ease;
 }
-table{
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    height: 70%;
-    width: 95%;
-    overflow: auto;
-    padding-top: 12px;
-    border: collapse;
-    text-align: center;
-}
-#tablediv thead {
-    width: 100%;
-}
-#tablediv th{
-    background: rgb(184, 218, 184);
-    position: sticky;
-    border: none;
-    top: 0;
-}
-#tablediv  tr td{
-    background: white;
-    border-bottom: 1px solid black;
-}
+
 main{
     display: flex;
     flex-direction: column;
@@ -74,18 +50,46 @@ main{
     justify-content: space-around;
     height: 80vh;
     width: 100%;
-        padding-top: 20px;
+     padding-top: 20px;
 }
-#knopka1:hover{
-    padding: 8px;
+#tablediv{
+    width: 100%;
+    height: 60vh;
+    overflow: auto;
 }
-#knopka2:hover{
-    padding: 8px;
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
 }
-#knopka3:hover{
+th,td{
+    padding: 10px;
+}
+th{
+    background: rgb(162, 241, 162);
+    border: none;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+td{
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid black;
+}
+td:hover{
+    background: rgb(206, 243, 212);
+    transition: 0.5s ease;
+}
+header button:hover{
     padding: 8px;
 }
 
 footer{
-    
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 10vh;
+    clear: both;
 }

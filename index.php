@@ -28,6 +28,7 @@ mysqli_query($conn, "
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renusz</title>
     <!-- Подключаем стили -->
+
     <link rel="shortcut icon" href="img/Fotoram.io.jpg" />
     <link rel="stylesheet" href="base.css">
 </head>
@@ -40,9 +41,9 @@ mysqli_query($conn, "
         </div>
         <ul id="menu">
             <!-- Кнопки навигации по сайту -->
-            <a href="meldunek.php" class="knopka" id="knopka1"><li>Zamelduj Gościa</li></a>
-            <a href="wymeldowanie.php" class="knopka" id="knopka2"><li>Wymelduj Goscia</li></a>
-            <a href="edit.php" class="knopka" id="knopka3"><li></li>Edycja Gości</li></a>
+            <a href="meldunek.php" class="knopka" id="knopka1"><button>Zamelduj Gościa</button></a>
+            <a href="wymeldowanie.php" class="knopka" id="knopka2"><button>Wymelduj Goscia</button></a>
+            <a href="edit.php" class="knopka" id="knopka3"><button>Edycja Gości</button></a>
         </ul>
     </header>
     <main>
@@ -88,9 +89,16 @@ mysqli_query($conn, "
     </main>
     <footer>
         <!-- Информация о разработчике -->
-        <p>Developed by Artem Sorokin
+        <p>
+            Developed by Artem Sorokin
             <br>
-            Telegram: @luciferio666
+            Telegram: <a href="https://t.me/luciferio666">@luciferio666</a>
+            
+        </p>
+        <p>
+            And Bohdan Bura
+            <br>
+            Telegram: <a href="https://t.me/iziik1">@iziik1</a>
         </p>
     </footer>
 </body>
